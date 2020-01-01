@@ -5,13 +5,16 @@ import com.tunc.recyclerview.base.BaseAdapter
 import com.tunc.recyclerview.base.BaseModel
 import com.tunc.recyclerview.base.BaseViewHolder
 import com.tunc.recyclerview.model.MainInterface
-import com.tunc.recyclerview.view_holder.PostViewHolder
+import com.tunc.recyclerview.view_holder.NormalPostViewHolder
+import com.tunc.recyclerview.view_holder.StoryViewHolder
 
-class MainAdapter constructor(val mainInterface: MainInterface) :
+
+class PostAdapter constructor(val mainInterface: MainInterface) :
     BaseAdapter<BaseModel, BaseViewHolder<BaseModel, Any>>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = when (viewType) {
-        PostViewHolder.LAYOUT_ID -> PostViewHolder(parent,mainInterface)
-        else -> PostViewHolder(parent,mainInterface)
+        StoryViewHolder.LAYOUT_ID -> StoryViewHolder(parent, mainInterface)
+        NormalPostViewHolder.LAYOUT_ID -> NormalPostViewHolder(parent, mainInterface)
+        else -> NormalPostViewHolder(parent, mainInterface)
     } as BaseViewHolder<BaseModel, Any>
 
 }

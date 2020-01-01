@@ -30,4 +30,5 @@ abstract class BaseViewHolder<M : BaseModel, P : Any?> :
         bind(item as P)
     }
 
+
 }

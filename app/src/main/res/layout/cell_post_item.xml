@@ -2,22 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@android:color/holo_red_dark"
-    android:layout_height="60dp">
+    android:padding="20dp"
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/cell_post_item_textview"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:layout_gravity="center"
+        android:id="@+id/cell_post_title"
+        android:textSize="15dp"
+        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/cell_post_item_remove"
-        android:text="Sil"
-        android:layout_width="80dp"
-        android:layout_gravity="end"
-        android:layout_height="match_parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cell_post_recyclerview"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

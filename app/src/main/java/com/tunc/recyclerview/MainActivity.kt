@@ -4,49 +4,67 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tunc.recyclerview.adapter.MainAdapter
 import com.tunc.recyclerview.base.BaseModel
-import com.tunc.recyclerview.extensions.onInit
 import com.tunc.recyclerview.model.MainInterface
+import com.tunc.recyclerview.model.NormalPost
 import com.tunc.recyclerview.model.PostModel
-import com.tunc.recyclerview.model.UserModel
+import com.tunc.recyclerview.model.StoryPost
+import com.tunc.recyclerview.utils.PostEnums
+import com.tunc.recyclerview.utils.vertical
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainInterface {
 
-    private val postAdapter by lazy { MainAdapter(this) }
+    private val homeAdapter by lazy { MainAdapter(this) }
 
-
-    var items: ArrayList<BaseModel> = ArrayList()
+    var homeitems: List<BaseModel>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        postAdapter.onInit(
+        homeAdapter.vertical(
             recylerview_list
         )
 
-        items = arrayListOf(
-            PostModel("1", "deneme"),
 
-            UserModel("kemal", "tunç"),
-
-            PostModel("2", "ikinc ideneme"),
-
-            //Default verdiğimiz layoutu böyle değiştirebiliyoruz.
-            UserModel("basefy", "basefy").apply {
-                layoutId = R.layout.cell_user_item
-            },
-
-            PostModel("3", "ucundu deneme")
+        val stories = listOf(
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost(),
+            StoryPost()
+        )
+        val normalPost = listOf(
+            NormalPost(),
+            NormalPost(),
+            NormalPost(),
+            NormalPost(),
+            NormalPost()
         )
 
-        postAdapter.items = items
+        homeitems = listOf(
+            PostModel(
+                "Hikayeler",
+                stories,
+                PostEnums.STORY_POST
+            ),
+            PostModel(
+                "Postlar",
+                normalPost,
+                PostEnums.NORMAL_POST
+            )
+        )
 
+        homeAdapter.items = homeitems!!
     }
 
     override fun remove(position: Int) {
-        items.removeAt(position)
-        postAdapter.items = items
-        postAdapter.notifyDataSetChanged()
     }
 }
