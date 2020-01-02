@@ -8,10 +8,10 @@ import com.tunc.recyclerview.model.MainInterface
 import com.tunc.recyclerview.view_holder.PostViewHolder
 
 class MainAdapter constructor(val mainInterface: MainInterface) :
-    BaseAdapter<BaseModel, BaseViewHolder<BaseModel, Any>>() {
+    BaseAdapter<BaseModel, BaseViewHolder<BaseModel>>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = when (viewType) {
         PostViewHolder.LAYOUT_ID -> PostViewHolder(parent,mainInterface)
         else -> PostViewHolder(parent,mainInterface)
-    } as BaseViewHolder<BaseModel, Any>
+    } as BaseViewHolder<BaseModel>
 
 }

@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlin.properties.Delegates
 
 
-abstract class BaseAdapter<M : BaseModel, VH : BaseViewHolder<M, Any>> : RecyclerView.Adapter<VH>(),
+abstract class BaseAdapter<M : BaseModel, VH : BaseViewHolder<M>> : RecyclerView.Adapter<VH>(),
     DiffAdapter {
 
     var items: List<M> by Delegates.observable(emptyList()) { _, old, new ->

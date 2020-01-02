@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
 
 @Suppress("UNCHECKED_CAST")
-abstract class BaseViewHolder<M : BaseModel, P : Any?> :
+abstract class BaseViewHolder<M : BaseModel> :
     RecyclerView.ViewHolder, LayoutContainer {
 
     constructor(itemView: View) : super(itemView)
@@ -24,10 +24,10 @@ abstract class BaseViewHolder<M : BaseModel, P : Any?> :
     override val containerView: View?
         get() = this.itemView
 
-    abstract fun bind(item: P)
+    abstract fun bind(item: M)
 
     internal fun bindItem(item: M) {
-        bind(item as P)
+        bind(item)
     }
 
 

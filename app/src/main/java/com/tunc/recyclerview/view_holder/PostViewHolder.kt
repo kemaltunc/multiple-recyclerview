@@ -14,7 +14,7 @@ import com.tunc.recyclerview.utils.vertical
 import kotlinx.android.synthetic.main.cell_post_item.view.*
 
 class PostViewHolder(parent: ViewGroup, private val mainInterface: MainInterface) :
-    BaseViewHolder<BaseModel, PostModel>(parent, LAYOUT_ID) {
+    BaseViewHolder<PostModel>(parent, LAYOUT_ID) {
 
     private val postAdapter by lazy { PostAdapter(mainInterface) }
     @SuppressLint("SetTextI18n")
